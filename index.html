@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GoBruver · Juguetes, accesorios y regalos 0–6 años</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{ --c1:#7DD6E5; --c2:#B9E6D3; --c3:#F8E3A1; --c4:#F1E4D1; --text:#0f172a; }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,Arial,sans-serif; color:var(--text);
+      background:#FFF7F0;
+      background-image:
+        radial-gradient(60rem 28rem at 6% -8%, rgba(185,230,211,.55), transparent 60%),
+        radial-gradient(60rem 28rem at 94% -10%, rgba(125,214,229,.50), transparent 60%),
+        radial-gradient(48rem 22rem at 12% 118%, rgba(248,227,161,.48), transparent 60%),
+        radial-gradient(48rem 22rem at 88% 120%, rgba(241,228,209,.48), transparent 60%);
+      background-attachment: fixed;
+    }
+    .band{height:40px;background:linear-gradient(90deg,var(--c3) 0%,var(--c2) 38%,var(--c1) 78%);box-shadow:0 1px 0 rgba(0,0,0,.05)}
+    header,main,footer{max-width:1120px;margin:0 auto; position:relative; z-index:1}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 16px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand strong{ color: var(--c1); font-weight:800; font-size:clamp(18px,2.6vw,26px); line-height:1 }
+    .menu{display:flex;align-items:center;gap:20px}
+    .hero{margin:16px 16px 0;border-radius:20px;padding:22px 18px;background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.05);box-shadow:0 10px 22px rgba(0,0,0,.05)}
+    .hero h1{font-size:clamp(20px,3.6vw,30px);margin:0 0 6px}
+    .hero p{font-size:clamp(14px,2vw,16px);margin:0}
+    .section{padding:18px 16px}
+    .grid{display:grid;gap:12px}
+    .card{background:#fff;border-radius:16px;padding:16px;border:1px solid rgba(0,0,0,.06);box-shadow:0 6px 18px rgba(0,0,0,.04)}
+    .accent{border-left:5px solid var(--c2); padding-left:10px}
+    input,textarea{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px;font:inherit}
+    button{cursor:pointer;border:0;border-radius:12px;padding:12px 18px;background:#7DD6E5;font-weight:600}
+    .hidden{display:none}
+    #gracias{max-width:720px;margin:12vh auto;padding:0 16px}
+    #gracias .card{padding:24px}
+    @media(min-width:900px){ .grid3{grid-template-columns:repeat(3,1fr)} }
+  </style>
+</head>
+<body>
+  <div class="band"></div>
+  <header class="nav">
+    <a href="#" class="brand"><strong>GoBruver</strong></a>
+    <nav class="menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section id="inicio" class="hero">
+    <h1>Juguetes, accesorios y regalos para 0–6 años</h1>
+    <p>Selección bonita y segura para familias que cuidan el bienestar y el aprendizaje. Diseño cálido, juego libre y materiales responsables.</p>
+  </section>
+
+  <main>
+    <section class="section">
+      <h2 class="accent" style="margin:0 0 8px">Qué encontrarás</h2>
+      <div class="grid grid3">
+        <div class="card"><h3>Juguetes</h3><p>Propuestas abiertas por edades para explorar, construir y descubrir.</p></div>
+        <div class="card"><h3>Accesorios</h3><p>Complementos prácticos y bonitos para el día a día del bebé y del niño.</p></div>
+        <div class="card"><h3>Regalos</h3><p>Ideas con sentido para nacimientos y cumpleaños, listos para sorprender.</p></div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="section">
+      <h2 class="accent" style="margin:0 0 8px">Catálogo</h2>
+      <div class="card">
+        <h3>Set creativo de construcción (3–6 años)</h3>
+        <ul>
+          <li>Juego libre y desarrollo de motricidad fina.</li>
+          <li>Ideas descargables por QR para <strong>montar la ciudad y crear figuras</strong>.</li>
+          <li>Materiales seguros y resistentes.</li>
+        </ul>
+        <p><em>Fotos y ficha completa próximamente.</em></p>
+      </div>
+    </section>
+
+    <section id="contacto" class="section">
+      <h2 class="accent" style="margin:0 0 8px">Contacto</h2>
+      <p>¿Tienes dudas o quieres recomendaciones por edad? Escríbenos a <a href="mailto:support@gobruver.com">support@gobruver.com</a> o usa el formulario.</p>
+
+      <div class="grid" style="grid-template-columns:1fr;gap:12px">
+        <div class="card">
+          <h3>Suscripción</h3>
+          <p>Recibe ideas por edades, lanzamientos y ofertas.</p>
+          <form method="POST" action="https://formspree.io/f/xdkwnkpz" accept-charset="UTF-8">
+            <input type="hidden" name="_redirect" value="#gracias">
+            <input type="hidden" name="_subject" value="Nueva suscripción a GoBruver">
+            <label>Email</label>
+            <input type="email" name="email" required placeholder="tu@email.com" />
+            <div style="margin-top:8px"><button type="submit">Suscribirme</button></div>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>Escríbenos</h3>
+          <p>Te ayudamos a elegir por interés y edad.</p>
+          <form method="POST" action="https://formspree.io/f/xdkwnkpz" accept-charset="UTF-8">
+            <input type="hidden" name="_redirect" value="#gracias">
+            <input type="hidden" name="_subject" value="Mensaje de contacto GoBruver">
+            <label>Nombre</label>
+            <input name="nombre" required />
+            <label>Email</label>
+            <input type="email" name="email" required />
+            <label>Mensaje</label>
+            <textarea name="mensaje" rows="4" placeholder="Cuéntanos qué buscas…"></textarea>
+            <div style="margin-top:8px"><button type="submit">Enviar</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="gracias" class="hidden">
+      <div class="card">
+        <h2>¡Gracias! 🎉</h2>
+        <p>Hemos recibido tu suscripción o mensaje. Te responderemos pronto.</p>
+        <p><a href="#inicio">Volver al inicio</a> · <a href="#catalogo">Ir al catálogo</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="section" style="border-top:1px solid rgba(0,0,0,.06)">
+    <div class="brand"><strong>GoBruver</strong></div>
+    <div style="margin-top:6px;font-size:14px">© GoBruver · <span style="opacity:.7">Bienestar y aprendizaje</span></div>
+  </footer>
+
+  <script>
+    if (location.hash === '#gracias') {
+      document.getElementById('gracias').classList.remove('hidden');
+      document.getElementById('gracias').scrollIntoView({behavior:'smooth'});
+    }
+  </script>
+</body>
+</html>
