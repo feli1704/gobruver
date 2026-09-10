@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GoBruver | Productos para jugar, cuidarse y moverse</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#333;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(162,208,204,.30), transparent 25%),
+    radial-gradient(circle at 92% 18%, rgba(249,218,124,.25), transparent 25%),
+    radial-gradient(circle at 15% 85%, rgba(247,216,178,.32), transparent 28%),
+    radial-gradient(circle at 90% 82%, rgba(125,214,229,.18), transparent 28%),
+    #fff;
+}
+
+header{
+  text-align:center;
+  padding:28px 20px 18px;
+  border-top:8px solid #A2D0CC;
+  background:rgba(255,255,255,.75);
+}
+
+.logo{
+  width:240px;
+  max-width:75%;
+  height:auto;
+}
+
+nav{
+  margin-top:18px;
+}
+
+nav a{
+  color:#333;
+  text-decoration:none;
+  font-weight:600;
+  margin:0 16px;
+}
+
+nav a:hover{
+  color:#1597a3;
+}
+
+.hero{
+  max-width:1000px;
+  margin:45px auto 25px;
+  text-align:center;
+  padding:25px;
+}
+
+.hero h1{
+  font-size:clamp(32px,5vw,52px);
+  margin:0 0 16px;
+  font-weight:600;
+}
+
+.hero p{
+  max-width:720px;
+  margin:auto;
+  font-size:19px;
+  line-height:1.6;
+  color:#666;
+}
+
+.productos{
+  max-width:1150px;
+  margin:35px auto 70px;
+  padding:0 20px;
+}
+
+.productos h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:35px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.card{
+  background:rgba(255,255,255,.94);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 8px 30px rgba(0,0,0,.09);
+  display:flex;
+  flex-direction:column;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 35px rgba(0,0,0,.13);
+}
+
+.card img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  background:#fafafa;
+}
+
+.card-content{
+  padding:25px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.card h3{
+  font-size:23px;
+  margin:0 0 12px;
+}
+
+.card p{
+  color:#666;
+  line-height:1.55;
+  margin:0 0 22px;
+  flex:1;
+}
+
+.amazon{
+  display:inline-block;
+  text-align:center;
+  padding:14px 20px;
+  border-radius:30px;
+  background:#232f3e;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.amazon:hover{
+  background:#131a22;
+}
+
+.contacto{
+  text-align:center;
+  padding:55px 20px;
+  background:rgba(255,255,255,.65);
+}
+
+.contacto h2{
+  font-size:30px;
+}
+
+.contacto p{
+  color:#666;
+}
+
+.contacto a{
+  color:#168d98;
+  font-weight:bold;
+}
+
+footer{
+  text-align:center;
+  padding:28px;
+  color:#777;
+  font-size:14px;
+}
+
+@media(max-width:850px){
+  .grid{
+    grid-template-columns:1fr;
+    max-width:520px;
+    margin:auto;
+  }
+
+  nav a{
+    margin:0 8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="marca.jpg" alt="GoBruver" class="logo">
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#productos">Productos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <h1>Productos pensados para disfrutar cada momento</h1>
+
+  <p>
+    En GoBruver creamos productos para jugar, cuidarse y mantenerse activo.
+    Descubre nuestra selección para niños, descanso y bienestar.
+  </p>
+</section>
+
+<section class="productos" id="productos">
+
+  <h2>Nuestros productos</h2>
+
+  <div class="grid">
+
+    <article class="card">
+      <img src="juguete.jpg" alt="Ciudad Montessori GoBruver">
+
+      <div class="card-content">
+        <h3>Ciudad Montessori · 57 piezas</h3>
+
+        <p>
+          Set de construcción de madera para crear, imaginar y aprender
+          jugando. Diseñado para niños a partir de 3 años.
+        </p>
+
+        <a class="amazon"
+           href="https://www.amazon.es/dp/B0FS782KC8"
+           target="_blank"
+           rel="noopener">
+          Ver en Amazon
+        </a>
+      </div>
+    </article>
+
+
+    <article class="card">
+      <img src="almohada.jpg" alt="Almohada para piernas GoBruver">
+
+      <div class="card-content">
+        <h3>Almohada para piernas y rodillas</h3>
+
+        <p>
+          Almohada de espuma viscoelástica diseñada para dormir de lado.
+          Incluye banda ajustable, funda extra y bolsa de viaje.
+        </p>
+
+        <a class="amazon"
+           href="https://www.amazon.es/dp/B0H346NZNG"
+           target="_blank"
+           rel="noopener">
+          Ver en Amazon
+        </a>
+      </div>
+    </article>
+
+
+    <article class="card">
+      <img src="pilates.jpg" alt="Kit de Pilates GoBruver">
+
+      <div class="card-content">
+        <h3>Kit de Pilates completo</h3>
+
+        <p>
+          Un set completo para entrenar en casa con aro, pelota,
+          bandas de resistencia, pesas, discos, calcetines y guía
+          de ejercicios.
+        </p>
+
+        <a class="amazon"
+           href="https://www.amazon.es/dp/B0H6WVBSFS"
+           target="_blank"
+           rel="noopener">
+          Ver en Amazon
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<section class="contacto" id="contacto">
+
+  <h2>¿Necesitas ayuda?</h2>
+
+  <p>
+    Para cualquier consulta sobre nuestros productos puedes escribirnos a
+  </p>
+
+  <p>
+    <a href="mailto:support@gobruver.com">
+      support@gobruver.com
+    </a>
+  </p>
+
+</section>
+
+
+<footer>
+  © 2026 GoBruver · Todos los derechos reservados
+</footer>
+
+</body>
+</html>
