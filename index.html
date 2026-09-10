@@ -1,748 +1,841 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>GoBruver | Bienestar, aprendizaje y movimiento</title>
-
-<style>
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  color:#243431;
-  background:#fbfaf7;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-.contenedor{
-  width:min(1240px,92%);
-  margin:auto;
-}
-
-/* CABECERA */
-
-header{
-  background:rgba(255,255,255,.96);
-  border-bottom:1px solid #ecebe6;
-  position:sticky;
-  top:0;
-  z-index:100;
-}
-
-.cabecera{
-  height:76px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:30px;
-}
-
-.marca{
-  font-size:30px;
-  font-weight:700;
-  letter-spacing:-1px;
-  color:#203835;
-}
-
-nav{
-  display:flex;
-  align-items:center;
-  gap:34px;
-}
-
-nav a{
-  font-size:15px;
-  font-weight:600;
-  color:#273936;
-}
-
-nav a:hover{
-  color:#78907d;
-}
-
-/* HERO */
-
-.hero{
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 83% 18%, rgba(153,184,157,.26), transparent 20%),
-    radial-gradient(circle at 94% 75%, rgba(224,205,171,.38), transparent 26%),
-    linear-gradient(110deg,#f6f0e7 0%,#faf7f1 55%,#eef3ec 100%);
-}
-
-.hero:after{
-  content:"";
-  position:absolute;
-  width:420px;
-  height:420px;
-  border-radius:50%;
-  right:-160px;
-  top:-120px;
-  background:rgba(255,255,255,.42);
-}
-
-.hero-grid{
-  min-height:410px;
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  align-items:center;
-  gap:60px;
-  padding:62px 0;
-  position:relative;
-  z-index:2;
-}
-
-.hero h1{
-  margin:0 0 16px;
-  font-size:clamp(43px,5vw,66px);
-  line-height:1.04;
-  letter-spacing:-2px;
-  max-width:720px;
-}
-
-.hero p{
-  margin:0 0 30px;
-  font-size:21px;
-  line-height:1.5;
-  color:#56635f;
-  max-width:650px;
-}
-
-.beneficios{
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px 26px;
-}
-
-.beneficio{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  color:#40534e;
-  font-size:15px;
-}
-
-.icono{
-  width:36px;
-  height:36px;
-  border:1px solid #93a695;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:rgba(255,255,255,.65);
-}
-
-.hero-frase{
-  display:flex;
-  justify-content:center;
-}
-
-.tarjeta-frase{
-  width:390px;
-  min-height:245px;
-  border-radius:34px 34px 100px 34px;
-  padding:42px;
-  background:rgba(255,255,255,.72);
-  box-shadow:0 18px 50px rgba(69,80,70,.10);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.tarjeta-frase small{
-  text-transform:uppercase;
-  letter-spacing:2px;
-  color:#879589;
-  margin-bottom:10px;
-}
-
-.tarjeta-frase strong{
-  font-family:Georgia, "Times New Roman", serif;
-  font-weight:400;
-  font-style:italic;
-  font-size:36px;
-  line-height:1.18;
-}
-
-/* SELECCIÓN */
-
-.seleccion{
-  padding:62px 0 78px;
-  background:#fff;
-}
-
-.titulo{
-  text-align:center;
-  margin-bottom:34px;
-}
-
-.titulo h2{
-  margin:0 0 7px;
-  font-size:38px;
-  letter-spacing:-1px;
-}
-
-.titulo p{
-  margin:0;
-  color:#6a7975;
-  font-size:17px;
-}
-
-.productos{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:27px;
-}
-
-.producto{
-  background:#fff;
-  border:1px solid #e9ebe6;
-  border-radius:19px;
-  overflow:hidden;
-  box-shadow:0 12px 32px rgba(54,70,60,.08);
-  display:flex;
-  flex-direction:column;
-  transition:.22s ease;
-}
-
-.producto:hover{
-  transform:translateY(-5px);
-  box-shadow:0 18px 42px rgba(54,70,60,.13);
-}
-
-.foto{
-  height:295px;
-  padding:16px;
-  background:#f7f6f2;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.foto img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
-}
-
-.producto-info{
-  padding:22px 23px 25px;
-  display:flex;
-  flex-direction:column;
-  flex:1;
-}
-
-.categoria{
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:1.5px;
-  font-weight:700;
-  color:#8b795e;
-  margin-bottom:7px;
-}
-
-.producto h3{
-  margin:0 0 9px;
-  font-size:23px;
-  line-height:1.25;
-}
-
-.producto p{
-  margin:0 0 22px;
-  color:#65716e;
-  font-size:16px;
-  line-height:1.55;
-  flex:1;
-}
-
-.boton{
-  display:inline-block;
-  align-self:flex-start;
-  background:#819781;
-  color:#fff;
-  padding:12px 21px;
-  border-radius:8px;
-  font-weight:700;
-  font-size:15px;
-  transition:.2s;
-}
-
-.boton:hover{
-  background:#667d69;
-}
-
-/* SOBRE GOBRUVER */
-
-.sobre{
-  padding:75px 0;
-  background:#f4efe7;
-}
-
-.sobre-grid{
-  display:grid;
-  grid-template-columns:.85fr 1.15fr;
-  gap:58px;
-  align-items:center;
-}
-
-.logo-box{
-  min-height:290px;
-  padding:38px;
-  border-radius:24px;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 12px 32px rgba(59,69,61,.07);
-}
-
-.logo-box img{
-  max-width:310px;
-  width:88%;
-  height:auto;
-}
-
-.sobre h2{
-  margin:0 0 17px;
-  font-size:39px;
-}
-
-.sobre p{
-  margin:0 0 14px;
-  color:#5f6d69;
-  font-size:18px;
-  line-height:1.65;
-}
-
-/* FRANJA */
-
-.franja{
-  background:#eaf0e7;
-  padding:24px 0;
-}
-
-.franja-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  text-align:center;
-}
-
-.franja-item{
-  font-weight:600;
-  color:#40544e;
-}
-
-/* CONTACTO */
-
-.contacto{
-  padding:66px 20px;
-  text-align:center;
-  background:#fff;
-}
-
-.contacto h2{
-  margin:0 0 13px;
-  font-size:34px;
-}
-
-.contacto p{
-  margin:0 0 12px;
-  color:#65736f;
-  font-size:17px;
-}
-
-.contacto a{
-  font-weight:700;
-  color:#5f7866;
-}
-
-footer{
-  background:#263936;
-  color:#edf1ed;
-  text-align:center;
-  padding:23px 15px;
-  font-size:14px;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-  .hero-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero-frase{
-    display:none;
-  }
-
-  .productos{
-    grid-template-columns:1fr;
-  }
-
-  .foto{
-    height:390px;
-  }
-
-  .sobre-grid{
-    grid-template-columns:1fr;
-  }
-
-  .franja-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(max-width:620px){
-
-  .cabecera{
-    height:auto;
-    padding:18px 0;
-    flex-direction:column;
-  }
-
-  nav{
-    gap:16px;
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-
-  .hero-grid{
-    padding:48px 0;
-  }
-
-  .hero h1{
-    font-size:42px;
-  }
-
-  .hero p{
-    font-size:18px;
-  }
-
-  .beneficios{
-    flex-direction:column;
-  }
-
-  .foto{
-    height:290px;
-  }
-
-  .titulo h2{
-    font-size:31px;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GoBruver | Bienestar, aprendizaje y movimiento</title>
+
+  <style>
+    :root{
+      --verde:#203b36;
+      --verde-suave:#7f9787;
+      --verde-claro:#edf2ec;
+      --crema:#f6f1e8;
+      --arena:#e7dccd;
+      --texto:#23322f;
+      --gris:#66736f;
+      --blanco:#ffffff;
+      --borde:#e8e9e4;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--texto);
+      background:#fbfaf7;
+      line-height:1.55;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      display:block;
+      max-width:100%;
+    }
+
+    .contenedor{
+      width:min(1200px,92%);
+      margin:auto;
+    }
+
+    /* CABECERA */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(32,59,54,.08);
+    }
+
+    .cabecera{
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+    }
+
+    .marca{
+      font-size:29px;
+      font-weight:700;
+      letter-spacing:-1px;
+      color:var(--verde);
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:30px;
+    }
+
+    nav a{
+      font-size:15px;
+      font-weight:600;
+      color:#334540;
+      position:relative;
+    }
+
+    nav a:after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-7px;
+      width:0;
+      height:1px;
+      background:var(--verde);
+      transition:.2s ease;
+    }
+
+    nav a:hover:after{
+      width:100%;
+    }
+
+    /* HERO */
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 82% 20%, rgba(139,169,145,.22), transparent 22%),
+        radial-gradient(circle at 95% 90%, rgba(220,201,172,.32), transparent 26%),
+        linear-gradient(115deg,#f8f4ed 0%,#fbfaf7 50%,#edf3ee 100%);
+    }
+
+    .hero:before{
+      content:"";
+      position:absolute;
+      width:360px;
+      height:360px;
+      border-radius:50%;
+      right:-120px;
+      top:-110px;
+      background:rgba(255,255,255,.5);
+    }
+
+    .hero-grid{
+      min-height:455px;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      align-items:center;
+      gap:60px;
+      padding:72px 0;
+      position:relative;
+      z-index:2;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:17px;
+      text-transform:uppercase;
+      letter-spacing:2.4px;
+      font-size:12px;
+      font-weight:700;
+      color:#879286;
+    }
+
+    .hero h1{
+      margin:0 0 20px;
+      font-size:clamp(44px,5vw,66px);
+      line-height:1.02;
+      letter-spacing:-2px;
+      color:var(--verde);
+      max-width:720px;
+    }
+
+    .hero p{
+      margin:0 0 30px;
+      max-width:650px;
+      font-size:20px;
+      color:#5a6763;
+    }
+
+    .beneficios{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px 26px;
+    }
+
+    .beneficio{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      color:#41544f;
+      font-size:15px;
+    }
+
+    .icono{
+      width:36px;
+      height:36px;
+      display:grid;
+      place-items:center;
+      border:1px solid #9eafa2;
+      border-radius:50%;
+      background:rgba(255,255,255,.76);
+      font-size:15px;
+    }
+
+    .hero-derecha{
+      display:flex;
+      justify-content:center;
+    }
+
+    .frase{
+      width:min(400px,100%);
+      min-height:280px;
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(255,255,255,.9);
+      border-radius:36px 36px 110px 36px;
+      box-shadow:0 24px 55px rgba(53,70,61,.10);
+      padding:48px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .frase span{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:2.6px;
+      color:#89988d;
+      margin-bottom:14px;
+    }
+
+    .frase strong{
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:400;
+      font-style:italic;
+      font-size:38px;
+      line-height:1.18;
+      color:#2c433e;
+    }
+
+    /* PRODUCTOS */
+
+    .seleccion{
+      padding:78px 0 86px;
+      background:#fff;
+    }
+
+    .titulo-seccion{
+      text-align:center;
+      margin-bottom:40px;
+    }
+
+    .titulo-seccion .eyebrow{
+      margin-bottom:10px;
+    }
+
+    .titulo-seccion h2{
+      margin:0 0 10px;
+      font-size:39px;
+      letter-spacing:-1px;
+      color:var(--verde);
+    }
+
+    .titulo-seccion p{
+      margin:0;
+      color:#6b7874;
+      font-size:17px;
+    }
+
+    .productos{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:26px;
+    }
+
+    .producto{
+      background:var(--blanco);
+      border:1px solid var(--borde);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 14px 34px rgba(45,63,54,.07);
+      transition:.24s ease;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .producto:hover{
+      transform:translateY(-5px);
+      box-shadow:0 21px 48px rgba(45,63,54,.11);
+    }
+
+    .foto{
+      height:300px;
+      padding:18px;
+      background:#f7f5f0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .foto img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      border-radius:14px;
+    }
+
+    .info{
+      padding:24px 24px 27px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+
+    .categoria{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:1.8px;
+      font-weight:700;
+      color:#8a7b67;
+      margin-bottom:8px;
+    }
+
+    .info h3{
+      margin:0 0 11px;
+      font-size:23px;
+      line-height:1.28;
+      color:#263a35;
+    }
+
+    .info p{
+      margin:0 0 23px;
+      color:#68736f;
+      font-size:15.5px;
+      line-height:1.6;
+      flex:1;
+    }
+
+    .boton{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      align-self:flex-start;
+      min-width:145px;
+      padding:12px 20px;
+      border-radius:9px;
+      background:var(--verde);
+      color:#fff;
+      font-size:14px;
+      font-weight:700;
+      transition:.2s;
+    }
+
+    .boton:hover{
+      background:#35544d;
+    }
+
+    /* SOBRE */
+
+    .sobre{
+      padding:78px 0;
+      background:var(--crema);
+    }
+
+    .sobre-grid{
+      display:grid;
+      grid-template-columns:.85fr 1.15fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .logo-box{
+      background:#fff;
+      border-radius:26px;
+      min-height:300px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:38px;
+      box-shadow:0 15px 35px rgba(55,67,60,.07);
+    }
+
+    .logo-box img{
+      max-width:300px;
+      width:88%;
+      height:auto;
+    }
+
+    .sobre-texto .eyebrow{
+      margin-bottom:10px;
+    }
+
+    .sobre h2{
+      margin:0 0 18px;
+      font-size:40px;
+      letter-spacing:-1px;
+      color:var(--verde);
+    }
+
+    .sobre p{
+      margin:0 0 14px;
+      color:#5e6c67;
+      font-size:17px;
+      line-height:1.7;
+    }
+
+    /* VALORES */
+
+    .valores{
+      background:var(--verde-claro);
+      border-top:1px solid #dde6dd;
+      border-bottom:1px solid #dde6dd;
+    }
+
+    .valores-grid{
+      min-height:92px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      align-items:center;
+      text-align:center;
+    }
+
+    .valor{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:9px;
+      font-weight:600;
+      color:#40544f;
+      font-size:15px;
+    }
+
+    .valor span{
+      font-size:18px;
+      color:#6e8876;
+    }
+
+    /* CONTACTO */
+
+    .contacto{
+      padding:74px 20px;
+      text-align:center;
+      background:#fff;
+    }
+
+    .contacto .eyebrow{
+      margin-bottom:10px;
+    }
+
+    .contacto h2{
+      margin:0 0 14px;
+      font-size:36px;
+      color:var(--verde);
+    }
+
+    .contacto p{
+      margin:0 0 10px;
+      color:#6a7773;
+      font-size:16px;
+    }
+
+    .contacto a{
+      font-weight:700;
+      color:#557060;
+      font-size:17px;
+    }
+
+    footer{
+      background:#213833;
+      color:#eef2ef;
+      text-align:center;
+      padding:24px 15px;
+      font-size:13px;
+      letter-spacing:.2px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .hero-grid{
+        grid-template-columns:1fr;
+        min-height:auto;
+      }
+
+      .hero-derecha{
+        display:none;
+      }
+
+      .productos{
+        grid-template-columns:1fr;
+      }
+
+      .foto{
+        height:380px;
+      }
+
+      .sobre-grid{
+        grid-template-columns:1fr;
+      }
+
+      .valores-grid{
+        grid-template-columns:1fr;
+        padding:24px 0;
+      }
+    }
+
+    @media(max-width:620px){
+
+      .cabecera{
+        flex-direction:column;
+        padding:17px 0;
+      }
+
+      nav{
+        flex-wrap:wrap;
+        gap:14px 18px;
+        justify-content:center;
+      }
+
+      .hero-grid{
+        padding:52px 0;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .beneficios{
+        flex-direction:column;
+      }
+
+      .titulo-seccion h2{
+        font-size:32px;
+      }
+
+      .foto{
+        height:290px;
+      }
+
+      .sobre h2{
+        font-size:33px;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="contenedor cabecera">
+  <header>
+    <div class="contenedor cabecera">
 
-    <a class="marca" href="#inicio">GoBruver</a>
+      <a href="#inicio" class="marca">GoBruver</a>
 
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#productos">Productos</a>
-      <a href="#sobre">Sobre GoBruver</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#sobre">Sobre GoBruver</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
 
-  </div>
-</header>
+    </div>
+  </header>
 
+  <main>
 
-<main>
+    <section class="hero" id="inicio">
 
-<section class="hero" id="inicio">
+      <div class="contenedor hero-grid">
 
-  <div class="contenedor hero-grid">
+        <div>
 
-    <div>
+          <span class="eyebrow">GoBruver</span>
 
-      <h1>Productos que te acompañan en cada etapa</h1>
+          <h1>Productos que acompañan tu día a día</h1>
 
-      <p>
-        Bienestar, aprendizaje y movimiento para disfrutar de los pequeños
-        momentos de cada día.
-      </p>
+          <p>
+            Una selección pensada para jugar, aprender, cuidarse y mantenerse activo,
+            con productos funcionales y cuidados para distintos momentos de la vida.
+          </p>
 
-      <div class="beneficios">
+          <div class="beneficios">
 
-        <div class="beneficio">
-          <span class="icono">✓</span>
-          <span>Calidad en cada detalle</span>
+            <div class="beneficio">
+              <span class="icono">✓</span>
+              <span>Calidad en cada detalle</span>
+            </div>
+
+            <div class="beneficio">
+              <span class="icono">♡</span>
+              <span>Diseño funcional</span>
+            </div>
+
+            <div class="beneficio">
+              <span class="icono">✦</span>
+              <span>Para diferentes etapas</span>
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="beneficio">
-          <span class="icono">♡</span>
-          <span>Diseño pensado para ti</span>
-        </div>
+        <div class="hero-derecha">
 
-        <div class="beneficio">
-          <span class="icono">✦</span>
-          <span>Para diferentes etapas</span>
+          <div class="frase">
+            <span>Nuestra filosofía</span>
+            <strong>
+              Pequeños detalles,<br>
+              grandes momentos.
+            </strong>
+          </div>
+
         </div>
 
       </div>
 
-    </div>
+    </section>
 
 
-    <div class="hero-frase">
+    <section class="seleccion" id="productos">
 
-      <div class="tarjeta-frase">
-        <small>GoBruver</small>
-        <strong>
-          Pequeños detalles,<br>
-          grandes momentos.
-        </strong>
+      <div class="contenedor">
+
+        <div class="titulo-seccion">
+
+          <span class="eyebrow">Nuestra selección</span>
+
+          <h2>Descubre GoBruver</h2>
+
+          <p>
+            Productos pensados para distintos momentos de tu día.
+          </p>
+
+        </div>
+
+
+        <div class="productos">
+
+
+          <!-- JUGUETE -->
+
+          <article class="producto">
+
+            <div class="foto">
+
+              <img
+                src="imagen%20principal%2022(1)(1).jpg"
+                alt="Ciudad Montessori GoBruver">
+
+            </div>
+
+            <div class="info">
+
+              <div class="categoria">
+                Juego y aprendizaje
+              </div>
+
+              <h3>
+                Ciudad Montessori · 57 piezas
+              </h3>
+
+              <p>
+                Set de construcción de madera para crear, imaginar y aprender jugando.
+                Diseñado para niños a partir de 3 años.
+              </p>
+
+              <a
+                class="boton"
+                href="https://www.amazon.es/dp/B0FS782KC8"
+                target="_blank"
+                rel="noopener noreferrer">
+                Ver en Amazon
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- ALMOHADA -->
+
+          <article class="producto">
+
+            <div class="foto">
+
+              <img
+                src="foto%20principal%20tumbada%20%20corregida%203000%20ES.png"
+                alt="Almohada para piernas y rodillas GoBruver">
+
+            </div>
+
+            <div class="info">
+
+              <div class="categoria">
+                Descanso y bienestar
+              </div>
+
+              <h3>
+                Almohada para piernas y rodillas
+              </h3>
+
+              <p>
+                Almohada de espuma viscoelástica para dormir de lado,
+                con diseño ergonómico, banda ajustable, funda extra y bolsa de viaje.
+              </p>
+
+              <a
+                class="boton"
+                href="https://www.amazon.es/dp/B0H346NZNG"
+                target="_blank"
+                rel="noopener noreferrer">
+                Ver en Amazon
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- PILATES -->
+
+          <article class="producto">
+
+            <div class="foto">
+
+              <img
+                src="foto%20principal%201.1%20corregida%203000ES.png"
+                alt="Kit de Pilates completo GoBruver">
+
+            </div>
+
+            <div class="info">
+
+              <div class="categoria">
+                Movimiento y ejercicio
+              </div>
+
+              <h3>
+                Kit de Pilates completo
+              </h3>
+
+              <p>
+                Set para entrenar en casa con aro, pelota, bandas de resistencia,
+                pesas, discos, calcetines antideslizantes y guía de ejercicios.
+              </p>
+
+              <a
+                class="boton"
+                href="https://www.amazon.es/dp/B0H6WVBSFS"
+                target="_blank"
+                rel="noopener noreferrer">
+                Ver en Amazon
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
       </div>
 
-    </div>
-
-  </div>
-
-</section>
+    </section>
 
 
-<section class="seleccion" id="productos">
+    <section class="sobre" id="sobre">
 
-  <div class="contenedor">
+      <div class="contenedor sobre-grid">
 
-    <div class="titulo">
-      <h2>Descubre nuestra selección</h2>
-      <p>
-        Productos pensados para jugar, cuidarse y mantenerse activo.
-      </p>
-    </div>
-
-
-    <div class="productos">
-
-
-      <!-- JUGUETE -->
-
-      <article class="producto">
-
-        <div class="foto">
+        <div class="logo-box">
 
           <img
-            src="imagen%20principal%2022(1)(1).jpg"
-            alt="Ciudad Montessori GoBruver">
+            src="marca.jpg"
+            alt="GoBruver">
 
         </div>
 
-        <div class="producto-info">
+        <div class="sobre-texto">
 
-          <div class="categoria">
-            Juego y aprendizaje
-          </div>
+          <span class="eyebrow">Nuestra marca</span>
 
-          <h3>
-            Ciudad Montessori · 57 piezas
-          </h3>
+          <h2>Sobre GoBruver</h2>
 
           <p>
-            Set de construcción de madera para crear, imaginar y aprender
-            jugando. Diseñado para niños a partir de 3 años.
+            En GoBruver desarrollamos y seleccionamos productos pensados para
+            acompañar diferentes momentos de la vida cotidiana.
           </p>
-
-          <a
-            class="boton"
-            href="https://www.amazon.es/dp/B0FS782KC8"
-            target="_blank"
-            rel="noopener noreferrer">
-            Ver en Amazon
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- ALMOHADA -->
-
-      <article class="producto">
-
-        <div class="foto">
-
-          <img
-            src="foto%20principal%20tumbada%20%20corregida%203000%20ES.png"
-            alt="Almohada para piernas y rodillas GoBruver">
-
-        </div>
-
-        <div class="producto-info">
-
-          <div class="categoria">
-            Descanso y bienestar
-          </div>
-
-          <h3>
-            Almohada para piernas y rodillas
-          </h3>
 
           <p>
-            Almohada de espuma viscoelástica para dormir de lado.
-            Diseño ergonómico, banda ajustable, funda extra y bolsa de viaje.
+            Juego y aprendizaje, descanso y bienestar, movimiento y ejercicio:
+            distintas categorías unidas por una misma idea, ofrecer productos
+            prácticos, cuidados y fáciles de disfrutar.
           </p>
 
-          <a
-            class="boton"
-            href="https://www.amazon.es/dp/B0H346NZNG"
-            target="_blank"
-            rel="noopener noreferrer">
-            Ver en Amazon
-          </a>
-
         </div>
 
-      </article>
+      </div>
+
+    </section>
 
 
-      <!-- PILATES -->
+    <section class="valores">
 
-      <article class="producto">
+      <div class="contenedor valores-grid">
 
-        <div class="foto">
-
-          <img
-            src="foto%20principal%201.1%20corregida%203000ES.png"
-            alt="Kit de Pilates completo GoBruver">
-
+        <div class="valor">
+          <span>✓</span>
+          Disponible en Amazon
         </div>
 
-        <div class="producto-info">
-
-          <div class="categoria">
-            Movimiento y ejercicio
-          </div>
-
-          <h3>
-            Kit de Pilates completo
-          </h3>
-
-          <p>
-            Set para entrenar en casa con aro, pelota, bandas,
-            pesas, discos, calcetines antideslizantes y guía de ejercicios.
-          </p>
-
-          <a
-            class="boton"
-            href="https://www.amazon.es/dp/B0H6WVBSFS"
-            target="_blank"
-            rel="noopener noreferrer">
-            Ver en Amazon
-          </a>
-
+        <div class="valor">
+          <span>♡</span>
+          Productos pensados para tu día a día
         </div>
 
-      </article>
+        <div class="valor">
+          <span>✦</span>
+          Diseño funcional y cuidado
+        </div>
+
+      </div>
+
+    </section>
 
 
-    </div>
+    <section class="contacto" id="contacto">
 
-  </div>
+      <span class="eyebrow">Estamos aquí</span>
 
-</section>
-
-
-<section class="sobre" id="sobre">
-
-  <div class="contenedor sobre-grid">
-
-    <div class="logo-box">
-
-      <img
-        src="marca.jpg"
-        alt="GoBruver">
-
-    </div>
-
-
-    <div>
-
-      <h2>Sobre GoBruver</h2>
+      <h2>Contacto</h2>
 
       <p>
-        En GoBruver creamos y seleccionamos productos pensados para
-        acompañar diferentes momentos de la vida cotidiana.
+        Para cualquier consulta sobre nuestros productos puedes escribirnos:
       </p>
 
-      <p>
-        Juego y aprendizaje, descanso y bienestar, movimiento y ejercicio:
-        distintas categorías unidas por una misma idea, ofrecer productos
-        prácticos, cuidados y fáciles de disfrutar.
-      </p>
+      <a href="mailto:support@gobruver.com">
+        support@gobruver.com
+      </a>
 
-    </div>
+    </section>
 
-  </div>
-
-</section>
+  </main>
 
 
-<section class="franja">
-
-  <div class="contenedor franja-grid">
-
-    <div class="franja-item">
-      ✓ Disponible en Amazon
-    </div>
-
-    <div class="franja-item">
-      ✓ Productos GoBruver
-    </div>
-
-    <div class="franja-item">
-      ✓ Diseño funcional y cuidado
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="contacto" id="contacto">
-
-  <h2>Contacto</h2>
-
-  <p>
-    Para cualquier consulta sobre nuestros productos puedes escribirnos:
-  </p>
-
-  <a href="mailto:support@gobruver.com">
-    support@gobruver.com
-  </a>
-
-</section>
-
-</main>
-
-
-<footer>
-  © 2026 GoBruver · Todos los derechos reservados
-</footer>
+  <footer>
+    © 2026 GoBruver · Todos los derechos reservados
+  </footer>
 
 </body>
 </html>
