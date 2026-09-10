@@ -8,15 +8,15 @@
 
   <style>
     :root{
-      --verde:#203b36;
-      --verde-suave:#7f9787;
-      --verde-claro:#edf2ec;
-      --crema:#f6f1e8;
-      --arena:#e7dccd;
-      --texto:#23322f;
-      --gris:#66736f;
+      --marfil:#fbf8f2;
+      --arena:#efe6d8;
+      --champan:#e8dcc9;
+      --salvia:#8fa08a;
+      --salvia-oscura:#748370;
+      --texto:#2f332f;
+      --texto-suave:#6f716d;
+      --borde:#ece6dc;
       --blanco:#ffffff;
-      --borde:#e8e9e4;
     }
 
     *{
@@ -29,10 +29,10 @@
 
     body{
       margin:0;
-      font-family:Arial, Helvetica, sans-serif;
+      font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
       color:var(--texto);
-      background:#fbfaf7;
-      line-height:1.55;
+      background:var(--marfil);
+      line-height:1.6;
     }
 
     a{
@@ -56,9 +56,9 @@
       position:sticky;
       top:0;
       z-index:100;
-      background:rgba(255,255,255,.94);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(32,59,54,.08);
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(160,145,120,.12);
     }
 
     .cabecera{
@@ -70,214 +70,220 @@
     }
 
     .marca{
-      font-size:29px;
-      font-weight:700;
-      letter-spacing:-1px;
-      color:var(--verde);
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:28px;
+      font-weight:400;
+      letter-spacing:.5px;
+      color:#3f4b42;
     }
 
     nav{
       display:flex;
-      align-items:center;
       gap:30px;
+      align-items:center;
     }
 
     nav a{
-      font-size:15px;
-      font-weight:600;
-      color:#334540;
-      position:relative;
+      font-size:14px;
+      font-weight:400;
+      color:#555b55;
+      transition:.2s;
     }
 
-    nav a:after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:-7px;
-      width:0;
-      height:1px;
-      background:var(--verde);
-      transition:.2s ease;
-    }
-
-    nav a:hover:after{
-      width:100%;
+    nav a:hover{
+      color:var(--salvia-oscura);
     }
 
     /* HERO */
 
     .hero{
+      background:
+        radial-gradient(circle at 82% 18%, rgba(191,171,137,.18), transparent 24%),
+        radial-gradient(circle at 92% 75%, rgba(173,190,168,.16), transparent 28%),
+        linear-gradient(115deg,#f9f5ee 0%,#fbfaf6 50%,#f1ede4 100%);
       position:relative;
       overflow:hidden;
-      background:
-        radial-gradient(circle at 82% 20%, rgba(139,169,145,.22), transparent 22%),
-        radial-gradient(circle at 95% 90%, rgba(220,201,172,.32), transparent 26%),
-        linear-gradient(115deg,#f8f4ed 0%,#fbfaf7 50%,#edf3ee 100%);
-    }
-
-    .hero:before{
-      content:"";
-      position:absolute;
-      width:360px;
-      height:360px;
-      border-radius:50%;
-      right:-120px;
-      top:-110px;
-      background:rgba(255,255,255,.5);
     }
 
     .hero-grid{
-      min-height:455px;
+      min-height:500px;
       display:grid;
-      grid-template-columns:1.15fr .85fr;
+      grid-template-columns:1.05fr .95fr;
       align-items:center;
-      gap:60px;
-      padding:72px 0;
-      position:relative;
-      z-index:2;
+      gap:70px;
+      padding:76px 0;
     }
 
-    .eyebrow{
-      display:inline-block;
-      margin-bottom:17px;
-      text-transform:uppercase;
-      letter-spacing:2.4px;
+    .hero-pre{
+      display:block;
+      margin-bottom:16px;
       font-size:12px;
-      font-weight:700;
-      color:#879286;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:#a08f76;
     }
 
     .hero h1{
-      margin:0 0 20px;
-      font-size:clamp(44px,5vw,66px);
-      line-height:1.02;
-      letter-spacing:-2px;
-      color:var(--verde);
-      max-width:720px;
+      margin:0 0 22px;
+      max-width:700px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:400;
+      font-size:clamp(46px,5vw,70px);
+      line-height:1.03;
+      letter-spacing:-1px;
+      color:#3f493f;
     }
 
     .hero p{
-      margin:0 0 30px;
-      max-width:650px;
-      font-size:20px;
-      color:#5a6763;
+      margin:0 0 32px;
+      max-width:620px;
+      font-size:19px;
+      font-weight:300;
+      color:#6b6c67;
     }
 
-    .beneficios{
+    .valores-hero{
       display:flex;
       flex-wrap:wrap;
-      gap:16px 26px;
+      gap:22px 28px;
+      margin-bottom:34px;
     }
 
-    .beneficio{
+    .valor-hero{
       display:flex;
       align-items:center;
-      gap:9px;
-      color:#41544f;
-      font-size:15px;
+      gap:10px;
+      font-size:14px;
+      color:#5f655f;
     }
 
-    .icono{
-      width:36px;
-      height:36px;
+    .valor-icono{
+      width:34px;
+      height:34px;
+      border:1px solid #b7b09f;
+      border-radius:50%;
       display:grid;
       place-items:center;
-      border:1px solid #9eafa2;
-      border-radius:50%;
-      background:rgba(255,255,255,.76);
-      font-size:15px;
+      background:rgba(255,255,255,.68);
+      font-size:14px;
+    }
+
+    .boton-hero{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:13px 22px;
+      border-radius:8px;
+      background:var(--salvia);
+      color:white;
+      font-size:14px;
+      font-weight:600;
+      transition:.2s;
+    }
+
+    .boton-hero:hover{
+      background:var(--salvia-oscura);
     }
 
     .hero-derecha{
+      position:relative;
+      min-height:360px;
       display:flex;
+      align-items:center;
       justify-content:center;
     }
 
-    .frase{
-      width:min(400px,100%);
-      min-height:280px;
-      background:rgba(255,255,255,.82);
+    .panel-frase{
+      width:400px;
+      min-height:300px;
+      border-radius:34px 34px 120px 34px;
+      background:rgba(255,255,255,.7);
       border:1px solid rgba(255,255,255,.9);
-      border-radius:36px 36px 110px 36px;
-      box-shadow:0 24px 55px rgba(53,70,61,.10);
-      padding:48px;
+      box-shadow:0 24px 55px rgba(91,80,63,.08);
+      padding:46px;
       display:flex;
       flex-direction:column;
       justify-content:center;
     }
 
-    .frase span{
-      font-size:12px;
+    .panel-frase small{
       text-transform:uppercase;
-      letter-spacing:2.6px;
-      color:#89988d;
-      margin-bottom:14px;
+      letter-spacing:2.5px;
+      color:#a19078;
+      margin-bottom:15px;
+      font-size:11px;
     }
 
-    .frase strong{
+    .panel-frase strong{
       font-family:Georgia, "Times New Roman", serif;
-      font-weight:400;
       font-style:italic;
-      font-size:38px;
-      line-height:1.18;
-      color:#2c433e;
+      font-weight:400;
+      font-size:40px;
+      line-height:1.2;
+      color:#525b52;
     }
 
     /* PRODUCTOS */
 
     .seleccion{
-      padding:78px 0 86px;
+      padding:82px 0 88px;
       background:#fff;
     }
 
     .titulo-seccion{
       text-align:center;
-      margin-bottom:40px;
+      margin-bottom:42px;
     }
 
-    .titulo-seccion .eyebrow{
-      margin-bottom:10px;
+    .titulo-seccion span{
+      display:block;
+      margin-bottom:8px;
+      text-transform:uppercase;
+      letter-spacing:2.6px;
+      font-size:11px;
+      color:#a08f76;
     }
 
     .titulo-seccion h2{
       margin:0 0 10px;
-      font-size:39px;
-      letter-spacing:-1px;
-      color:var(--verde);
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:400;
+      font-size:42px;
+      color:#434b44;
     }
 
     .titulo-seccion p{
       margin:0;
-      color:#6b7874;
-      font-size:17px;
+      font-size:16px;
+      color:#7a7b76;
     }
 
     .productos{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:26px;
+      gap:28px;
     }
 
     .producto{
-      background:var(--blanco);
+      background:#fff;
       border:1px solid var(--borde);
-      border-radius:22px;
+      border-radius:20px;
       overflow:hidden;
-      box-shadow:0 14px 34px rgba(45,63,54,.07);
-      transition:.24s ease;
+      box-shadow:0 14px 32px rgba(73,67,56,.06);
       display:flex;
       flex-direction:column;
+      transition:.25s ease;
     }
 
     .producto:hover{
-      transform:translateY(-5px);
-      box-shadow:0 21px 48px rgba(45,63,54,.11);
+      transform:translateY(-4px);
+      box-shadow:0 18px 40px rgba(73,67,56,.09);
     }
 
     .foto{
       height:300px;
       padding:18px;
-      background:#f7f5f0;
+      background:#faf8f4;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -287,36 +293,37 @@
       width:100%;
       height:100%;
       object-fit:contain;
-      border-radius:14px;
+      border-radius:12px;
     }
 
     .info{
-      padding:24px 24px 27px;
+      padding:24px 24px 26px;
       display:flex;
       flex-direction:column;
       flex:1;
     }
 
     .categoria{
-      font-size:11px;
+      font-size:10px;
       text-transform:uppercase;
-      letter-spacing:1.8px;
-      font-weight:700;
-      color:#8a7b67;
-      margin-bottom:8px;
+      letter-spacing:2px;
+      color:#aa9270;
+      margin-bottom:10px;
     }
 
     .info h3{
-      margin:0 0 11px;
-      font-size:23px;
-      line-height:1.28;
-      color:#263a35;
+      margin:0 0 12px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:24px;
+      font-weight:400;
+      line-height:1.25;
+      color:#3f463f;
     }
 
     .info p{
-      margin:0 0 23px;
-      color:#68736f;
-      font-size:15.5px;
+      margin:0 0 24px;
+      color:#747570;
+      font-size:15px;
       line-height:1.6;
       flex:1;
     }
@@ -326,79 +333,85 @@
       align-items:center;
       justify-content:center;
       align-self:flex-start;
-      min-width:145px;
-      padding:12px 20px;
-      border-radius:9px;
-      background:var(--verde);
-      color:#fff;
-      font-size:14px;
-      font-weight:700;
+      min-width:138px;
+      padding:11px 18px;
+      border-radius:8px;
+      background:#92a08f;
+      color:white;
+      font-size:13px;
+      font-weight:600;
       transition:.2s;
     }
 
     .boton:hover{
-      background:#35544d;
+      background:#788575;
     }
 
     /* SOBRE */
 
     .sobre{
-      padding:78px 0;
-      background:var(--crema);
+      padding:82px 0;
+      background:linear-gradient(180deg,#f7f2ea 0%,#f3ede3 100%);
     }
 
     .sobre-grid{
       display:grid;
-      grid-template-columns:.85fr 1.15fr;
-      gap:60px;
+      grid-template-columns:.9fr 1.1fr;
+      gap:62px;
       align-items:center;
     }
 
     .logo-box{
-      background:#fff;
-      border-radius:26px;
       min-height:300px;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:38px;
-      box-shadow:0 15px 35px rgba(55,67,60,.07);
+      background:#fff;
+      border-radius:24px;
+      padding:34px;
+      box-shadow:0 16px 36px rgba(79,68,52,.06);
     }
 
     .logo-box img{
+      width:82%;
       max-width:300px;
-      width:88%;
       height:auto;
     }
 
-    .sobre-texto .eyebrow{
+    .sobre-pre{
+      display:block;
       margin-bottom:10px;
+      text-transform:uppercase;
+      letter-spacing:2.4px;
+      font-size:11px;
+      color:#9e8d75;
     }
 
     .sobre h2{
       margin:0 0 18px;
-      font-size:40px;
-      letter-spacing:-1px;
-      color:var(--verde);
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:400;
+      font-size:42px;
+      color:#454d46;
     }
 
     .sobre p{
-      margin:0 0 14px;
-      color:#5e6c67;
-      font-size:17px;
-      line-height:1.7;
+      margin:0 0 15px;
+      font-size:16px;
+      color:#6f716d;
+      line-height:1.75;
     }
 
-    /* VALORES */
+    /* FRANJA */
 
-    .valores{
-      background:var(--verde-claro);
-      border-top:1px solid #dde6dd;
-      border-bottom:1px solid #dde6dd;
+    .franja{
+      background:#f6f2ea;
+      border-top:1px solid #ece5d9;
+      border-bottom:1px solid #ece5d9;
     }
 
-    .valores-grid{
-      min-height:92px;
+    .franja-grid{
+      min-height:90px;
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:20px;
@@ -406,67 +419,67 @@
       text-align:center;
     }
 
-    .valor{
+    .franja-item{
       display:flex;
       justify-content:center;
       align-items:center;
       gap:9px;
-      font-weight:600;
-      color:#40544f;
-      font-size:15px;
-    }
-
-    .valor span{
-      font-size:18px;
-      color:#6e8876;
+      font-size:14px;
+      color:#626962;
     }
 
     /* CONTACTO */
 
     .contacto{
-      padding:74px 20px;
+      padding:76px 20px;
       text-align:center;
-      background:#fff;
+      background:white;
     }
 
-    .contacto .eyebrow{
-      margin-bottom:10px;
+    .contacto span{
+      display:block;
+      margin-bottom:8px;
+      text-transform:uppercase;
+      letter-spacing:2.4px;
+      font-size:11px;
+      color:#a08f76;
     }
 
     .contacto h2{
       margin:0 0 14px;
-      font-size:36px;
-      color:var(--verde);
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:400;
+      font-size:40px;
+      color:#444c45;
     }
 
     .contacto p{
       margin:0 0 10px;
-      color:#6a7773;
-      font-size:16px;
+      font-size:15px;
+      color:#777873;
     }
 
     .contacto a{
-      font-weight:700;
-      color:#557060;
-      font-size:17px;
+      font-size:16px;
+      color:#798875;
+      font-weight:600;
     }
 
     footer{
-      background:#213833;
-      color:#eef2ef;
+      background:#454a45;
+      color:#f3f0e9;
       text-align:center;
-      padding:24px 15px;
-      font-size:13px;
-      letter-spacing:.2px;
+      padding:22px 15px;
+      font-size:12px;
+      letter-spacing:.4px;
     }
 
-    /* RESPONSIVE */
+    /* MÓVIL */
 
     @media(max-width:900px){
 
       .hero-grid{
         grid-template-columns:1fr;
-        min-height:auto;
       }
 
       .hero-derecha{
@@ -485,7 +498,7 @@
         grid-template-columns:1fr;
       }
 
-      .valores-grid{
+      .franja-grid{
         grid-template-columns:1fr;
         padding:24px 0;
       }
@@ -495,17 +508,17 @@
 
       .cabecera{
         flex-direction:column;
-        padding:17px 0;
+        padding:18px 0;
       }
 
       nav{
         flex-wrap:wrap;
-        gap:14px 18px;
         justify-content:center;
+        gap:14px 18px;
       }
 
       .hero-grid{
-        padding:52px 0;
+        padding:54px 0;
       }
 
       .hero h1{
@@ -513,15 +526,15 @@
       }
 
       .hero p{
-        font-size:18px;
+        font-size:17px;
       }
 
-      .beneficios{
+      .valores-hero{
         flex-direction:column;
       }
 
       .titulo-seccion h2{
-        font-size:32px;
+        font-size:34px;
       }
 
       .foto{
@@ -529,7 +542,7 @@
       }
 
       .sobre h2{
-        font-size:33px;
+        font-size:34px;
       }
     }
 
@@ -561,44 +574,54 @@
 
         <div>
 
-          <span class="eyebrow">GoBruver</span>
+          <span class="hero-pre">GoBruver</span>
 
-          <h1>Productos que acompañan tu día a día</h1>
+          <h1>
+            Pequeños cambios para grandes momentos
+          </h1>
 
           <p>
-            Una selección pensada para jugar, aprender, cuidarse y mantenerse activo,
-            con productos funcionales y cuidados para distintos momentos de la vida.
+            Productos pensados para acompañarte en el juego,
+            el bienestar y el movimiento.
           </p>
 
-          <div class="beneficios">
+          <div class="valores-hero">
 
-            <div class="beneficio">
-              <span class="icono">✓</span>
+            <div class="valor-hero">
+              <span class="valor-icono">✓</span>
               <span>Calidad en cada detalle</span>
             </div>
 
-            <div class="beneficio">
-              <span class="icono">♡</span>
-              <span>Diseño funcional</span>
+            <div class="valor-hero">
+              <span class="valor-icono">♡</span>
+              <span>Diseño pensado para ti</span>
             </div>
 
-            <div class="beneficio">
-              <span class="icono">✦</span>
-              <span>Para diferentes etapas</span>
+            <div class="valor-hero">
+              <span class="valor-icono">✦</span>
+              <span>Bienestar en tu día a día</span>
             </div>
 
           </div>
+
+          <a href="#productos" class="boton-hero">
+            Descubre nuestros productos →
+          </a>
 
         </div>
 
         <div class="hero-derecha">
 
-          <div class="frase">
-            <span>Nuestra filosofía</span>
+          <div class="panel-frase">
+
+            <small>Nuestra esencia</small>
+
             <strong>
-              Pequeños detalles,<br>
-              grandes momentos.
+              Bienestar.<br>
+              Juego.<br>
+              Movimiento.
             </strong>
+
           </div>
 
         </div>
@@ -614,19 +637,20 @@
 
         <div class="titulo-seccion">
 
-          <span class="eyebrow">Nuestra selección</span>
+          <span>Nuestra selección</span>
 
-          <h2>Descubre GoBruver</h2>
+          <h2>
+            Productos para distintos momentos
+          </h2>
 
           <p>
-            Productos pensados para distintos momentos de tu día.
+            Una colección pensada para acompañarte de forma sencilla y natural.
           </p>
 
         </div>
 
 
         <div class="productos">
-
 
           <!-- JUGUETE -->
 
@@ -651,8 +675,8 @@
               </h3>
 
               <p>
-                Set de construcción de madera para crear, imaginar y aprender jugando.
-                Diseñado para niños a partir de 3 años.
+                Set de construcción de madera para crear,
+                imaginar y aprender jugando.
               </p>
 
               <a
@@ -660,7 +684,7 @@
                 href="https://www.amazon.es/dp/B0FS782KC8"
                 target="_blank"
                 rel="noopener noreferrer">
-                Ver en Amazon
+                Ver producto
               </a>
 
             </div>
@@ -691,8 +715,8 @@
               </h3>
 
               <p>
-                Almohada de espuma viscoelástica para dormir de lado,
-                con diseño ergonómico, banda ajustable, funda extra y bolsa de viaje.
+                Almohada de espuma viscoelástica pensada
+                para un descanso más cómodo y estable.
               </p>
 
               <a
@@ -700,7 +724,7 @@
                 href="https://www.amazon.es/dp/B0H346NZNG"
                 target="_blank"
                 rel="noopener noreferrer">
-                Ver en Amazon
+                Ver producto
               </a>
 
             </div>
@@ -731,8 +755,8 @@
               </h3>
 
               <p>
-                Set para entrenar en casa con aro, pelota, bandas de resistencia,
-                pesas, discos, calcetines antideslizantes y guía de ejercicios.
+                Set completo para entrenar en casa con aro,
+                pelota, bandas, pesas, discos y accesorios.
               </p>
 
               <a
@@ -740,7 +764,7 @@
                 href="https://www.amazon.es/dp/B0H6WVBSFS"
                 target="_blank"
                 rel="noopener noreferrer">
-                Ver en Amazon
+                Ver producto
               </a>
 
             </div>
@@ -766,21 +790,26 @@
 
         </div>
 
-        <div class="sobre-texto">
+        <div>
 
-          <span class="eyebrow">Nuestra marca</span>
+          <span class="sobre-pre">
+            Nuestra marca
+          </span>
 
-          <h2>Sobre GoBruver</h2>
+          <h2>
+            Sobre GoBruver
+          </h2>
 
           <p>
-            En GoBruver desarrollamos y seleccionamos productos pensados para
-            acompañar diferentes momentos de la vida cotidiana.
+            Creamos y seleccionamos productos pensados
+            para acompañar diferentes momentos de la vida cotidiana.
           </p>
 
           <p>
-            Juego y aprendizaje, descanso y bienestar, movimiento y ejercicio:
-            distintas categorías unidas por una misma idea, ofrecer productos
-            prácticos, cuidados y fáciles de disfrutar.
+            Juego y aprendizaje, descanso y bienestar,
+            movimiento y ejercicio: distintas categorías unidas
+            por una misma idea, ofrecer productos prácticos,
+            cuidados y agradables de usar.
           </p>
 
         </div>
@@ -790,23 +819,20 @@
     </section>
 
 
-    <section class="valores">
+    <section class="franja">
 
-      <div class="contenedor valores-grid">
+      <div class="contenedor franja-grid">
 
-        <div class="valor">
-          <span>✓</span>
-          Disponible en Amazon
+        <div class="franja-item">
+          ♡ Productos pensados para tu día a día
         </div>
 
-        <div class="valor">
-          <span>♡</span>
-          Productos pensados para tu día a día
+        <div class="franja-item">
+          ✦ Diseño funcional y cuidado
         </div>
 
-        <div class="valor">
-          <span>✦</span>
-          Diseño funcional y cuidado
+        <div class="franja-item">
+          ✓ Disponible en Amazon
         </div>
 
       </div>
@@ -816,9 +842,11 @@
 
     <section class="contacto" id="contacto">
 
-      <span class="eyebrow">Estamos aquí</span>
+      <span>Contacto</span>
 
-      <h2>Contacto</h2>
+      <h2>
+        ¿Hablamos?
+      </h2>
 
       <p>
         Para cualquier consulta sobre nuestros productos puedes escribirnos:
